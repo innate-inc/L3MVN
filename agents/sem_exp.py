@@ -314,20 +314,7 @@ class Sem_Exp_Env_Agent(ObjectGoal_Env21):
             if relative_angle > 180:
                 relative_angle -= 360
 
-            ## add the evelution angle
-            eve_start_x = int(5 * math.sin(angle_st_goal) + start[0])
-            eve_start_y = int(5 * math.cos(angle_st_goal) + start[1])
-            if eve_start_x > map_pred.shape[0]: eve_start_x = map_pred.shape[0] 
-            if eve_start_y > map_pred.shape[0]: eve_start_y = map_pred.shape[0] 
-            if eve_start_x < 0: eve_start_x = 0 
-            if eve_start_y < 0: eve_start_y = 0 
-            if exp_pred[eve_start_x, eve_start_y] == 0 and self.eve_angle > -60:
-                action = 5
-                self.eve_angle -= 30
-            elif exp_pred[eve_start_x, eve_start_y] == 1 and self.eve_angle < 0:
-                action = 4
-                self.eve_angle += 30
-            elif relative_angle > self.args.turn_angle / 2.:
+            if relative_angle > self.args.turn_angle / 2.:
                 action = 3  # Right
             elif relative_angle < -self.args.turn_angle / 2.:
                 action = 2  # Left

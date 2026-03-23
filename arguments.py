@@ -74,7 +74,7 @@ def get_args():
                         help="path to config yaml containing task information")
     parser.add_argument("--split", type=str, default="train",
                         help="dataset split (train | val | val_mini) ")
-    parser.add_argument('--camera_height', type=float, default=0.88,
+    parser.add_argument('--camera_height', type=float, default=0.26,
                         help="agent camera height in metres")
     parser.add_argument('--hfov', type=float, default=79.0,
                         help="horizontal field of view in degrees")
