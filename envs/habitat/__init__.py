@@ -174,6 +174,10 @@ def construct_envs21(args):
     if "*" in basic_config.DATASET.CONTENT_SCENES:
         scenes = dataset.get_scenes_to_load(basic_config.DATASET)
 
+    if getattr(args, 'scenes', None):
+        allowed = set(args.scenes.split(','))
+        scenes = [s for s in scenes if s in allowed]
+
     if len(scenes) > 0:
         assert len(scenes) >= args.num_processes, (
             "reduce the number of processes as there "

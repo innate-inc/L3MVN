@@ -151,6 +151,9 @@ def get_args():
 
 
     parser.add_argument('--use_gtsem', type=int, default=0)
+    parser.add_argument('--scenes', type=str, default=None,
+                        help="comma-separated scene names to evaluate "
+                             "(default: all scenes in split)")
 
     # train_se_frontier
     parser.add_argument('--train_se_f', type=int, default=0)
